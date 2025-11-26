@@ -104,7 +104,7 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
                         modules={[Pagination]}
                         className="swiper "
                     >
-                        <SwiperSlide className='swiper-slide justify-center '>
+                        <SwiperSlide className='swiper-slide flex items-center justify-center '>
                             <div className="slide1details text-[8vw] md:text-[8vw] md:text-6xl flex justify-center items-center text-[#a0d4ff] font-bold">
                                 <h1>We Features in</h1>
                             </div>
