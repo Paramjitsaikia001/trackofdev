@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Api } from '../utils/api'
 const ProfileAndcover = () => {
 
     const [ProfilePics, setProfilePics] = useState([])
@@ -10,7 +11,7 @@ const ProfileAndcover = () => {
     useEffect(() => {
         const fetchingProfile = async () => {
             try {
-                const response = await axios.get(`/profileAndCover/profile-pics`)
+                const response = await Api.get(`/profileAndCover/profile-pics`)
                 console.log(response.data)
                 setProfilePics(response.data)
             } catch (error) {
@@ -23,7 +24,7 @@ const ProfileAndcover = () => {
 
         const fetchingCoverImage = async () => {
             try {
-                const response = await axios.get(`/profileAndCover/cover-pics`)
+                const response = await Api.get(`/profileAndCover/cover-pics`)
                 console.log(response)
                 setCoverPics(response.data)
             } catch (error) {
