@@ -68,9 +68,10 @@ code {
 }
 
 .swiper-slide {
- 
+  display:flex !important ;
   width: 100%;
   height: 100%;
+  text-align: center;
   background: rgb(16, 20, 57);
   background: radial-gradient(circle, rgba(16, 20, 57, 1) 0%, rgba(85, 116, 177, 1) 100%);
 

@@ -104,12 +104,12 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
                         modules={[Pagination]}
                         className="swiper "
                     >
-                        <SwiperSlide className='bg-gradient-to-br from-slate-500 to-white/40 w-full h-full flex items-center justify-center '>
+                        <SwiperSlide className='swiper-slide flex items-center justify-center '>
                             <div className="slide1details text-[8vw] md:text-[8vw] md:text-6xl flex justify-center items-center text-[#a0d4ff] font-bold">
                                 <h1>We Features in</h1>
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide className='bg-gradient-to-br from-slate-500 to-white/40 w-full h-full flex flex-col gap-3 justify-center items-center text-[#a0d4ff]'>
+                        <SwiperSlide className='swiper-slide flex flex-col gap-3 justify-center items-center text-[#a0d4ff]'>
                             <div className="slide2Header">
                                 <h1 className="text-[8vw] md:text-6xl font-bold">What is for?</h1>
                             </div>
@@ -118,7 +118,7 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
                             </div>
                         </SwiperSlide>
 
-                        <SwiperSlide className='bg-gradient-to-br from-slate-500 to-white/40 w-full h-full flex flex-col gap-3 justify-center items-center text-[#a0d4ff]'>
+                        <SwiperSlide className='swiper-slide flex flex-col gap-3 justify-center items-center text-[#a0d4ff]'>
                             <div className="slide2Header">
                                 <h1 className="text-[8vw] md:text-6xl font-bold">Development Areas</h1>
                             </div>
@@ -129,7 +129,7 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
 
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide className='bg-gradient-to-br from-slate-500 to-white/40 w-full h-full flex flex-col gap-3 justify-center items-center text-[#a0d4ff]'>
+                        <SwiperSlide className='swiper-slide flex flex-col gap-3 justify-center items-center text-[#a0d4ff]'>
                             <div className="slide2Header">
                                 <h1 className="text-[8vw] md:text-6xl font-bold">Personalized Roadmaps</h1>
                             </div>
