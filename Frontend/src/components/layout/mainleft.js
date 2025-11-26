@@ -68,7 +68,7 @@ export default function Mainleft() {
                         <Link to={ROUTES.NOTFICATION}>
                             <li className={`text-white ${location.pathname === ROUTES.NOTFICATION ? 'xl:bg-[#314969] bg-none' : ''}    xl:list-none xl:gap-3 flex xl:items-center items-start xl:flex-row flex-col  md:py-2 px-3 xl:hover:bg-[#314969]  rounded-xl text-2xl font-medium`}>
                                 <span className=" material-symbols-outlined text-4xl font-[100] ">
-                                    <Bell className={`${location.pathname === ROUTES.NOTFICATION ? ' xl:fill-transparent fill-white' : ''}md:w-9 md:h-9 xl:w-6 xl:h-6 `}/>
+                                    <Bell className={`${location.pathname === ROUTES.NOTFICATION ? ' xl:fill-transparent fill-white' : ''} md:w-9 md:h-9 xl:w-6 xl:h-6 `}/>
                                 </span>
                                 <span className='xl:block hidden'>Notifications</span>
                             </li>

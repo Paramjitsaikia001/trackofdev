@@ -114,7 +114,7 @@ export default function Profile() {
                             }
 
                             <Link
-                                to={ROUTES.EDITPROFILE}
+                                to={ROUTES.UPDATEDETAILS}
                                 className="text-center profilepic text-white/80 text-md rounded-full border-2 font-bold border-white/20 py-2 px-5 absolute right-0 m-2 cursor-pointer">
                                 <SquarePen className="inline-block w-4 h-4 sm:hidden " />
                                 <p className="sm:block hidden">Edit profile</p>

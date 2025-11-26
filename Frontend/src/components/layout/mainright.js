@@ -38,7 +38,7 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
     const [savedMap, setSavedMap] = useState({});
     const navigate = useNavigate(); // Fixed typo: Changed 'nagivate' to 'navigate'
 
-       const routerhander = (name) => {
+    const routerhander = (name) => {
         navigate(`${ROUTES.DEVELOPMENT}/${name}`);
     }
 
@@ -59,7 +59,7 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
             }
         }
     };
-   
+
     const { data: developmentCards, loading, error } = Development();
     if (loading) {
         return <Loading />;
@@ -104,7 +104,7 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
                         modules={[Pagination]}
                         className="swiper "
                     >
-                        <SwiperSlide className='swiper-slide flex justify-center items-center'>
+                        <SwiperSlide className='swiper-slide justify-center '>
                             <div className="slide1details text-[8vw] md:text-[8vw] md:text-6xl flex justify-center items-center text-[#a0d4ff] font-bold">
                                 <h1>We Features in</h1>
                             </div>
