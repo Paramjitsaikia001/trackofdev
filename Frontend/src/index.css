@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'styleScript';
+  src: local('YourFontName'), url('./assets/fonts/StyleScript-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.styleScript {
+  font-family: 'styleScript';
+}
+
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Hide scrollbar until scrolling */
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 6px;
+}
+/* Show scrollbar on scroll */
+.scrollbar-show::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #03346E;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #021526;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #acc2ef;
+}
+
+.swiper {
+  align-items: center;
+  width: 98%;
+  height: 100%;
+  display: flex;
+  padding: 2rem;
+  border-radius: 20px;
+
+}
+
+.swiper-slide {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: rgb(16, 20, 57);
+  background: radial-gradient(circle, rgba(16, 20, 57, 1) 0%, rgba(85, 116, 177, 1) 100%);
+
+  /* Center slide text vertically */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gradientColor {
+  background: rgb(154, 238, 251);
+  background: linear-gradient(58deg, rgba(154, 238, 251, 1) 0%, rgba(96, 233, 254, 1) 24%, rgba(42, 200, 224, 1) 41%, rgba(17, 182, 208, 1) 66%, rgba(0, 82, 94, 1) 93%);
+}
+
+.gradientColor:hover {
+  background: rgb(154, 238, 251);
+  background: linear-gradient(58deg, rgba(154, 238, 251, 1) 100%, rgba(0, 82, 94, 1) 100%, rgba(42, 200, 224, 1) 100%, rgba(17, 182, 208, 1) 100%, rgba(96, 233, 254, 1) 100%);
+}
+
+.animation {
+  transition: all;
+  transition-duration: 3s;
+  translate: DetailPageAnimation;
+}
+
+.divShadows {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+@keyframes DetailPageAnimation {
+  0% {
+    height: 0;
+  }
+
+  50% {
+    height: 40%;
+  }
+
+  100% {
+    height: 80%;
+  }
+}
+
+.remove-bg {
+  mix-blend-mode: multiply;
+  background: transparent;
+}
+
+.material-symbols-filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 100,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+
+.toaster{
+  background-color: black;
+  color: white;
+}
