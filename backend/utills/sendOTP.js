@@ -15,16 +15,16 @@ const transporter = nodemailer.createTransport(
 
 const Mailer = async ( email,otp) => {
     try {
-        // if (!process.env.EMAIL_USER && !process.env.EMAIL_PASSWORD) {
-        //     console.log("Email credentials are not set in environment variables");
-        //     console.log(`your otp is ${otp} for email ${email}`);
+        if (!process.env.EMAIL_USER && !process.env.EMAIL_PASSWORD) {
+            console.log("Email credentials are not set in environment variables");
+            console.log(`your otp is ${otp} for email ${email}`);
 
-        //     return true;
-        // }
+            return true;
+        }
 
         await transporter.sendMail(
             {
-                from: "paramjitsaikia@gmail.com",
+                from: process.env.EMAIL_USER,
                 to: email,
                 subject: "Your verification OTP From DevTrack",
                 text: `Your Verification OTP is ${otp}. It is valid for 5 minutes.`
