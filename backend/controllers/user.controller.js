@@ -34,85 +34,86 @@ const generateAccessAndRefreshToken = async (userId) => {
 }
 
 
-const sendOTP = asyncHandler(async (req, res) => {
+// const sendOTP = asyncHandler(async (req, res) => {
 
-  //get the email from req.body
-  //check if the email is empty
-  //check if the email is valid format
-  //check if the email already exists in the database
-  const { email } = req.body;
+//   //get the email from req.body
+//   //check if the email is empty
+//   //check if the email is valid format
+//   //check if the email already exists in the database
+//   const { email } = req.body;
 
-  if (!email) {
-    throw new ApiError(400, "Email is required");
-  }
-  if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-    throw new ApiError(400, "Invalid email format");
-  }
-  const exitEmail = await User.findOne({ email: email.toLowerCase().trim() });
-  if (exitEmail && exitEmail.isEmailVerified) {
-    throw new ApiError(400, "email is already exists . please login instead")
-  }
+//   if (!email) {
+//     throw new ApiError(400, "Email is required");
+//   }
+//   if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+//     throw new ApiError(400, "Invalid email format");
+//   }
+//   const exitEmail = await User.findOne({ email: email.toLowerCase().trim() });
+//   if (exitEmail && exitEmail.isEmailVerified) {
+//     throw new ApiError(400, "email is already exists . please login instead")
+//   }
 
-
-
-  const otp = generateOTP();
-  console.log(otp, email);
-
-  await OTP.findOneAndUpdate(
-    { email: email.toLowerCase().trim() },
-    {
-      otp: otp,
-      expiredAt: new Date(Date.now() + 5 * 60 * 1000) //otp will expire in 5 minutes
-    },
-    {
-      upsert: true,
-      new: true
-    }
-  );
-  try {
-    await Mailer(email, otp);
-    console.log("OTP sent");
-  } catch (error) {
-    throw new ApiError(500, "Failed to send OTP email", error.message);
-  }
-
-  return res.status(201).json(
-    new apiResponse(201, "OTP sent to your email successfully")
-  );
-})
-
-const verifyOTP = asyncHandler(async (req, res) => {
-
-  const { email, otp } = req.body;
-
-  if (!email || !otp) {
-    throw new ApiError(400, "Email and OTP are required");
-  }
-
-  const normalizedEmail = email.toLowerCase().trim();
-
-  const record = await OTP.findOne({ email: normalizedEmail });
-  if (!record) {
-    throw new ApiError(400, "OTP expired or not found");
-  }
-
-  if (record.otp !== otp) {
-    throw new ApiError(400, "Invalid OTP");
-  }
-  console.log("otp verification is ........");
-
-  await EmailVerification.findOneAndUpdate(
-    { email: normalizedEmail },
-    { verified: true },
-    { upsert: true }
-  );
-  await OTP.deleteOne({ email: normalizedEmail });
+// console.log("checking in controller.....");
 
 
-  return res.status(200).json(
-    new apiResponse(200, { success: true }, "OTP verified successfully. Proceed to registration.")
-  );
-});
+//   const otp = generateOTP();
+//   console.log(otp, email);
+
+//   await OTP.findOneAndUpdate(
+//     { email: email.toLowerCase().trim() },
+//     {
+//       otp: otp,
+//       expiredAt: new Date(Date.now() + 5 * 60 * 1000) //otp will expire in 5 minutes
+//     },
+//     {
+//       upsert: true,
+//       new: true
+//     }
+//   );
+//   try {
+//     await Mailer(email, otp);
+//     console.log("OTP sent");
+//   } catch (error) {
+//     throw new ApiError(500, "Failed to send OTP email", error.message);
+//   }
+
+//   return res.status(201).json(
+//     new apiResponse(201, "OTP sent to your email successfully")
+//   );
+// })
+
+// const verifyOTP = asyncHandler(async (req, res) => {
+
+//   const { email, otp } = req.body;
+
+//   if (!email || !otp) {
+//     throw new ApiError(400, "Email and OTP are required");
+//   }
+
+//   const normalizedEmail = email.toLowerCase().trim();
+
+//   const record = await OTP.findOne({ email: normalizedEmail });
+//   if (!record) {
+//     throw new ApiError(400, "OTP expired or not found");
+//   }
+
+//   if (record.otp !== otp) {
+//     throw new ApiError(400, "Invalid OTP");
+//   }
+//   console.log("otp verification is ........");
+
+//   await EmailVerification.findOneAndUpdate(
+//     { email: normalizedEmail },
+//     { verified: true },
+//     { upsert: true }
+//   );
+//   await OTP.deleteOne({ email: normalizedEmail });
+
+
+//   return res.status(200).json(
+//     new apiResponse(200, { success: true }, "OTP verified successfully. Proceed to registration.")
+//   );
+// });
 
 const register = asyncHandler(async (req, res) => {
   const { email, fullName, userName, password, confirmPassword,Role } = req.body;
@@ -123,11 +124,11 @@ const register = asyncHandler(async (req, res) => {
 
   const normalizedEmail = email.toLowerCase().trim();
 
-  const emailVerified = await EmailVerification.findOne({ email: normalizedEmail });
+  // const emailVerified = await EmailVerification.findOne({ email: normalizedEmail });
 
-  if (!emailVerified || !emailVerified.verified) {
-    throw new ApiError(400, "Email not verified. Please verify OTP first.");
-  }
+  // if (!emailVerified || !emailVerified.verified) {
+  //   throw new ApiError(400, "Email not verified. Please verify OTP first.");
+  // }
 
   const userNameRegex = /^[a-z_][a-z0-9_]*$/;
   if (!userNameRegex.test(userName)) {

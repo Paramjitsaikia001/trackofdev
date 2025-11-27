@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 
 export const Mailer = async (toEmail, otp) => {
   try {
+    console.log("Sending OTP to from sentotp.js:", toEmail);
     const transporter = nodemailer.createTransport({
       host:  "smtp-relay.brevo.com"
 ,          // smtp-relay.brevo.com

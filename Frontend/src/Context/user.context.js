@@ -42,8 +42,9 @@ export const UserProvider = ({ children }) => {
 
     //send otp for register user
     const sendOTP = async (email) => {
-
+        
         try {
+            console.log("otp is context....", email);
             const res = await Api.post("/auth/send-otp", { email })
             console.log(res.data.data);
         } catch (error) {

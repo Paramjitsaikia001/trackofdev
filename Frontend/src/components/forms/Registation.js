@@ -58,6 +58,9 @@ const Registration = () => {
   const showOTPHandler = async () => {
     setShowotpsection(!showOTPsection)
     try {
+      console.log("Sending OTP to:", email);
+      console.log(process.env.REACT_APP_BASE_URL);
+      
       await sendOTP(email)
     } catch (error) {
       console.log(error);
