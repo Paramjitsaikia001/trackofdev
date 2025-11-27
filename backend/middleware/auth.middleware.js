@@ -21,6 +21,8 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
 
     try {
         const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "")
+        console.log(req.cookies?.accessToken,"token from cookie",req.header("Authorization")?.replace("Bearer ", ""),"token from header",token
+        );
         
         // if (typeof token !== "string") {
         //     throw new ApiError(401, "Invalid token format");
