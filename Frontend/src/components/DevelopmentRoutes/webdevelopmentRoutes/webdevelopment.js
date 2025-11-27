@@ -356,6 +356,7 @@ export default function WebDevelopment() {
             {showReactContextAPI && <ReactContextAPI closeContextAPI={() => setshowReactContextAPI(false)} Done={() => AddActivity(23)} />}
             {showReduxPage && <ReduxPage closeRedux={() => setshowReduxPage(false)} Done={() => AddActivity(24)} />}
             {showZustandPage && <ZustandPage closeZustand={() => setZustandPage(false)} Done={() => AddActivity(25)} />}
+                {showFullResources && <FullResources closeFullResources={() => setFullResources(false)} />}
 
             <div className='flex justify-center p-4 w-[100%]'>
                 <Header />
@@ -426,7 +427,7 @@ export default function WebDevelopment() {
             </div>
 
             {/* Full Resources Button */}
-            <div onClick={handlers.FullResourcesHandler} className="fixed bottom-[5rem] md:bottom-1 right-1 z-10">
+            <div onClick={FullResourcesHandler} className="fixed bottom-[5rem] md:bottom-1 right-1 z-10">
                 <button className="bg-[#198de0] hover:bg-[#ffff] px-3 py-3 rounded-2xl font-bold flex gap-2">
                     full course Resource
                     <span className="material-symbols-outlined">text_snippet</span>

@@ -14,6 +14,7 @@ import Login from './components/forms/Login';
 import PersonalDetails from './components/forms/addpersonaldetails';
 import UpdateDetails from './components/pages/updateDetails';
 import Notification from './components/pages/Notification';
+import Settings from './components/pages/settings';
 
 import AiML from './components/DevelopmentRoutes/ALMLdevelopment/AIML_development';
 import Gamedev from './components/DevelopmentRoutes/Gamedevelopment/Roadmap';
@@ -148,6 +149,19 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+<Route
+          path={ROUTES.SETTINGS}
+          element={
+            <ProtectedRoute>
+              <main className="flex p-0 m-0 bg-primary-bg font-[Roboto]">
+                <MainLeft />
+                <Settings />
+              </main>
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path={ROUTES.ACITVITY}
           element={

@@ -65,47 +65,19 @@ export default function UpdateDetails() {
         );
     }
     return (
-        <div className="min-h-screen bg-primary-bg flex items-center lg:w-[80%] w-[100%]  justify-center px-4 py-10">
-            <div className="w-full px-12 text-white flex flex-col gap-4">
+        <div className=" bg-primary-bg flex items-center xl:w-[80%] w-[100%] h-[100%]  justify-center px-2 md:px-4 py-10">
+            <div className="w-full lg:px-12 text-white flex flex-col gap-4">
 
-                <div className="border-b-2 pb-4 border-gray-500">
-                    <h2 className=' text-5xl font-bold text-white'>Update Profile Details</h2>
+                <div className="py-2 border-gray-500 bg-black/30 rounded-xl flex items-center justify-center">
+                    <h2 className=' text-5xl font-extralight text-white/40'>Set Profile Details</h2>
                 </div>
 
-                {/* Full Name */}
-                <div className="mb-5">
-                    <label className={`block  font-medium mb-1`}>Full Name</label>
-                    <input
-                        type="text"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
-                        className={`${inputStyles.primary} w-full px-4 py-2 focus:border-0 focus:ring focus:ring-blue-300`}
-                        placeholder="Your full name"
-                    />
-                </div>
-
-                {/* Role */}
-                <div className="mb-5">
-                    <label className="block  font-medium mb-1">Role</label>
-                    <select
-                        value={role}
-                        onChange={(e) => setRole(e.target.value)}
-                        className={`${inputStyles.primary} w-full px-4 py-2 focus:border-0 focus:ring focus:ring-blue-300`}
-                    >
-                        <option value="">Select role</option>
-                        <option value="Developer">Developer</option>
-                        <option value="Student">Student</option>
-                        <option value="Organisation">Organisation</option>
-                        <option value="Employee">Employee</option>
-                    </select>
-                </div>
-
-                {/* Profile Picture URL */}
-                <div className="mb-5 flex justify-around">
+    {/* Profile Picture URL */}
+                <div className="mb-5 flex gap-3 justify-around">
                     {profileOptions.map((profilepic) => (
                         <div
                             onClick={() => setSelectedProfile(profilepic.url)}
-                            className={`relative flex transition-transform duration-300  rounded-full images w-40 h-40`}>
+                            className={`relative flex transition-transform duration-300  rounded-full images md:w-40 md:h-40`}>
                             <img
                                 key={profilepic.id}
                                 src={profilepic.url}
@@ -124,7 +96,7 @@ export default function UpdateDetails() {
                     {coverOptions.map((coverImage) => (
                         <div
                             onClick={() => setSelectedCover(coverImage.url)}
-                            className={`relative flex transition-transform duration-300  rounded-xl images w-[70%] h-40`}>
+                            className={`relative flex transition-transform duration-300  rounded-xl images w-[90%] h-[20vh] md:h-40`}>
 
                             <img
                                 key={coverImage.id}
@@ -141,9 +113,39 @@ export default function UpdateDetails() {
                     ))}
                 </div>
 
+                {/* Full Name */}
+                <div className="mb-5">
+                    <label className={`block  font-extralight mb-1`}>Full Name</label>
+                    <input
+                        type="text"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        className={`${inputStyles.primary} w-full px-4 py-2 focus:border-0 focus:ring focus:ring-blue-300`}
+                        placeholder="Your full name"
+                    />
+                </div>
+
+                {/* Role */}
+                <div className="mb-5">
+                    <label className="block  font-extralight mb-1">Role</label>
+                    <select
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                        className={`${inputStyles.primary} w-full px-4 py-2 focus:border-0 focus:ring focus:ring-blue-300`}
+                    >
+                        <option value="">Select role</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Student">Student</option>
+                        <option value="Organisation">Organisation</option>
+                        <option value="Employee">Employee</option>
+                    </select>
+                </div>
+
+            
+
                 {/* Bio */}
                 <div className="mb-5">
-                    <label className="block  font-medium mb-1">Bio</label>
+                    <label className="block  font-extralight mb-1">Bio</label>
                     <textarea
                         rows="3"
                         value={bio}
@@ -155,7 +157,7 @@ export default function UpdateDetails() {
 
                 {/* GitHub */}
                 <div className="mb-5">
-                    <label className="block  font-medium mb-1">GitHub Link</label>
+                    <label className="block  font-extralight mb-1">GitHub Link</label>
                     <input
                         type="text"
                         value={github}
@@ -167,7 +169,7 @@ export default function UpdateDetails() {
 
                 {/* Portfolio */}
                 <div className="mb-5">
-                    <label className="block  font-medium mb-1">Portfolio Website</label>
+                    <label className="block  font-extralight mb-1">Portfolio Website</label>
                     <input
                         type="text"
                         value={portfolio}
@@ -179,7 +181,7 @@ export default function UpdateDetails() {
 
                 {/* LinkedIn */}
                 <div className="mb-6">
-                    <label className="block  font-medium mb-1">LinkedIn Profile</label>
+                    <label className="block  font-extralight mb-1">LinkedIn Profile</label>
                     <input
                         type="text"
                         value={linkedin}
@@ -193,7 +195,7 @@ export default function UpdateDetails() {
                 <button
                     onClick={handleSave}
                     disabled={saving}
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition disabled:bg-blue-300"
+                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-extralight hover:bg-blue-700 transition disabled:bg-blue-300"
                 >
                     {saving ? "Saving..." : "Save Changes"}
                 </button>

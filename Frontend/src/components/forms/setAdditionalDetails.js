@@ -37,17 +37,17 @@ const AdditionalDetails = () => {
     <div className='flex justify-center items-center w-[100%] h-[100vh]'>
       <div className=' text-white   w-[95%] h-[90vh] bg-primary-dark rounded-[2rem] shadow-lg shadow-black/20'>
 
-        <div className="sections flex justify-center items-center w-full h-[90%]">
+        <div className="sections flex flex-col lg:flex-row justify-center items-center w-full h-[90%]">
 
 
           <div className="profilepicx w-[20%] h-full flex flex-col justify-center items-center gap-8">
 
             <h2 className=" text-xl w-full text-center font-extralight italic">Select Profile Picture</h2>
-            <div className="flex flex-col gap-10 mb-6">
+            <div className="flex lg:flex-col gap-10 mb-6">
               {profileOptions.map((profilepic) => (
                 <div
                   onClick={() => setSelectedProfile(profilepic.url)}
-                  className={`relative flex transition-transform duration-300  rounded-full images w-40 h-40`}>
+                  className={`relative flex transition-transform duration-300  rounded-full images w-30 h-30 lg:w-40 lg:h-40`}>
                   <img
                     key={profilepic.id}
                     src={profilepic.url}
@@ -62,7 +62,7 @@ const AdditionalDetails = () => {
             </div>
           </div>
 
-          <div className="line h-[90%] rounded-full w-[2px] bg-white"></div>
+          <div className="line h-[90%] hidden lg:block rounded-full w-[2px] bg-white"></div>
 
           <div className="coverImages w-[70%] flex-col items-center justify-center h-full py-2">
 
@@ -71,7 +71,7 @@ const AdditionalDetails = () => {
               {coverOptions.map((coverImage) => (
                 <div
                   onClick={() => setSelectedCover(coverImage.url)}
-                  className={`relative flex transition-transform duration-300  rounded-xl images w-[70%] h-40`}>
+                  className={`relative flex transition-transform duration-300  rounded-xl images w-[70%] lg:h-40 h-20`}>
 
                   <img
                     key={coverImage.id}

@@ -1,12 +1,13 @@
 import React from 'react'
 import MobileNav from '../navigation/mobilenav'
-const Contact = () => {
+
+const Settings = () => {
   return (
     <section className="flex  xl:w-[80%] w-[100%]  h-[100%]">
-        <h1 className='text-center justify-center h-full w-full mt-10 text-sm text-white font-light'>we're encrypted</h1>
+        <h1 className='text-center justify-center h-full w-full mt-10 text-sm text-white font-light'>Make your own Setting</h1>
         <MobileNav/>
     </section>
   )
 }
 
-export default Contact
+export default Settings

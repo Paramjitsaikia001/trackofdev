@@ -194,7 +194,7 @@ export default function BackendRoadmap() {
                 </div>
             </div>
             {/* Full Resources Button */}
-            <div onClick={handlers.handleFullResource} className="fixed bottom-[5rem] md:bottom-1 right-1 z-10">
+            <div onClick={handlers.fullresourcehandler} className="fixed bottom-[5rem] md:bottom-1 right-1 z-10">
                 <button className="bg-[#198de0] hover:bg-[#ffff] px-3 py-3 rounded-2xl font-bold flex gap-2">
                     full course Resource
                     <span className="material-symbols-outlined">text_snippet</span>

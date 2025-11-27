@@ -7,6 +7,7 @@ import ReviewsofUser from "../../utils/ReviewofUser";
 import UserActivity from "../../utils/UserActivity";
 import MobileNav from "../navigation/mobilenav";
 import { ROUTES } from "../../constants/routes";
+import Loading from "../../utils/loading";
 
 export default function Profile() {
 
@@ -67,9 +68,7 @@ export default function Profile() {
 
     if (loading) {
         return (
-            <div className="flex justify-center items-center h-48">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-            </div>
+            <Loading />
         );
     }
 

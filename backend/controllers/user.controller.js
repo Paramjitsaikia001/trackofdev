@@ -158,7 +158,7 @@ const register = asyncHandler(async (req, res) => {
   });
 
 
-  await EmailVerification.deleteOne({ email: normalizedEmail });
+  // await EmailVerification.deleteOne({ email: normalizedEmail });
 
   // generate tokens for auto-login after registration
   const { accessToken, refreshToken } = await generateAccessAndRefreshToken(newUser._id);
@@ -326,4 +326,4 @@ const updateUserdetails = asyncHandler(async (req, res) => {
 })
 
 
-export { sendOTP, verifyOTP, register, login, getCurrentUser, logoutUser ,updateUserdetails};
+export { register, login, getCurrentUser, logoutUser ,updateUserdetails};

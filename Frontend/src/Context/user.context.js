@@ -41,27 +41,27 @@ export const UserProvider = ({ children }) => {
 
 
     //send otp for register user
-    const sendOTP = async (email) => {
+    // const sendOTP = async (email) => {
         
-        try {
-            console.log("otp is context....", email);
-            const res = await Api.post("/auth/send-otp", { email })
-            console.log(res.data.data);
-        } catch (error) {
-            setError(error?.response?.data?.message || "failed to send OTP")
-            throw error
-        }
-    }
+    //     try {
+    //         console.log("otp is context....", email);
+    //         const res = await Api.post("/auth/send-otp", { email })
+    //         console.log(res.data.data);
+    //     } catch (error) {
+    //         setError(error?.response?.data?.message || "failed to send OTP")
+    //         throw error
+    //     }
+    // }
 
-    const verifyOTP = async (email, otp) => {
-        try {
-            const res = await Api.post("/auth/verify-otp", { email, otp });
-            return res.data.data.success;  // FIXED
-        } catch (error) {
-            setError(error?.response?.data?.message || "invalid OTP");
-            throw error;
-        }
-    };
+    // const verifyOTP = async (email, otp) => {
+    //     try {
+    //         const res = await Api.post("/auth/verify-otp", { email, otp });
+    //         return res.data.data.success;  // FIXED
+    //     } catch (error) {
+    //         setError(error?.response?.data?.message || "invalid OTP");
+    //         throw error;
+    //     }
+    // };
 
     const register = async (email, fullName, userName, password, confirmPassword, Role) => {
         try {
@@ -181,8 +181,8 @@ export const UserProvider = ({ children }) => {
             addImages,
             updateDetails,
             register,
-            sendOTP,
-            verifyOTP,
+            // sendOTP,
+            // verifyOTP,
             error,
             setUser: setUserState
         }}>

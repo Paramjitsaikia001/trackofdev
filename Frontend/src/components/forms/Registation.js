@@ -27,7 +27,7 @@ const Registration = () => {
     // Handle form submission here
     try {
       await register(email, fullName, userName, password, confirmPassword, role)
-      navigate(ROUTES.ADDITIONALDETAILS)
+      navigate(ROUTES.HOME)
     } catch (error) {
       console.log(error.message);
     }
@@ -55,25 +55,25 @@ const Registration = () => {
     }
   }
 
-  const showOTPHandler = async () => {
-    setShowotpsection(!showOTPsection)
-    try {
-      console.log("Sending OTP to:", email);
-      console.log(process.env.REACT_APP_BASE_URL);
+  // const showOTPHandler = async () => {
+  //   setShowotpsection(!showOTPsection)
+  //   try {
+  //     console.log("Sending OTP to:", email);
+  //     console.log(process.env.REACT_APP_BASE_URL);
       
-      await sendOTP(email)
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     await sendOTP(email)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  const otpVerification = async () => {
-    try {
-      await verifyOTP(email, otp)
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // const otpVerification = async () => {
+  //   try {
+  //     await verifyOTP(email, otp)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
   return (
     <section className='flex justify-center items-center w-[100%] h-[100vh]'>
       <div className='flex w-[95%] h-[90vh] bg-primary-dark rounded-[2rem] shadow-lg shadow-black/20'>
@@ -191,13 +191,13 @@ const Registration = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className={`
                       ${inputStyles.primary}
-                      h-18 outline-none pl-2  w-[75%] bg-transparent border-2 border-white/50 rounded-lg  placeholder-white/40 text-white font-[500] h-full`}
+                      h-18 outline-none pl-2  w-full bg-transparent border-2 border-white/50 rounded-lg  placeholder-white/40 text-white font-[500] h-full`}
                   />
-                  <button
+                  {/* <button
                     type='button'
                     onClick={showOTPHandler}
                     className="w-[25%] py-2 hover:bg-transparent border-2 rounded-2xl md:rounded-full border-white/50  text-black font-semibold bg-white hover:text-white transition-colors duration-300"
-                  >Send OTP</button>
+                  >Send OTP</button> 
                 </div>
                 <div className={`${showOTPsection === true ? "" : "hidden"} otpsection flex gap-4 items-center justify-center transition-transform duration-500`}>
                   <input
@@ -217,8 +217,9 @@ const Registration = () => {
                     className="w-[40%] py-2 hover:bg-transparent border-2 rounded-full border-[#00d0ff] hover:border-white/50   text-white font-semibold bg-[#00d0ff]/30 transition-colors duration-300"
                   >
                     Verify Email
-                  </button>
-                </div>
+                  </button>*/}
+
+                </div> 
               </div>
 
 
@@ -231,6 +232,7 @@ const Registration = () => {
                   onChange={(e) => setRole(e.target.value)}
                   className="h-18 outline-none   w-[40%] bg-transparent rounded-lg  placeholder-white/40 italic font-semibold h-full"
                 >
+                  <option value="Developer">YOUR ROLE</option>
                   <option value="Developer">Developer</option>
                   <option value="Student" >Student</option>
                 </select>

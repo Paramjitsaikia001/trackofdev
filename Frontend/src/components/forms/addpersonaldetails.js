@@ -24,7 +24,7 @@ const PersonalDetails = () => {
     const addDetailsHandler = async () => {
         try {
             await addDetails(github, linkedin, Portfolio, bio)
-            navigate(ROUTES.PROFILE)
+            navigate(ROUTES.HOME)
         } catch (error) {
 
         }

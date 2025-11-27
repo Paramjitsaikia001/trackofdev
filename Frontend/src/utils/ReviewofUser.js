@@ -65,7 +65,7 @@ const timeAgo = (date) => {
         );
     }
   return (
-    <section className="reviews w-full px-4">
+    <section className="reviews w-full px-4 min-h-screen">
 
       <div className="review-container flex flex-col w-full gap-4">
         <div className="reviews-view-section flex flex-col rounded-xl   gap-3 h-30 overflow-x-auto ">

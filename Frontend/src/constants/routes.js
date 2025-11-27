@@ -14,6 +14,7 @@ export const ROUTES = {
     ADDPERSONALDETAILS:"/register/personal-details",
     UPDATEDETAILS:"/update-details",
     SEARCH:"/search",
+    SETTINGS:"/settings",
 
     // Development sub-routes
     APP_DEV: '/development/appdev',

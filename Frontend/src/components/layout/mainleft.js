@@ -115,15 +115,15 @@ export default function Mainleft() {
                         <Link to={ROUTES.ABOUT_US}>
                             <li className={`text-white ${location.pathname === ROUTES.ABOUT_US ? 'text-[#00ffea]' : ''} xl:list-none xl:gap-3 md:py-2 px-3 xl:hover:bg-[#314969]  rounded-xl flex xl:items-center items-start xl:flex-row flex-col text-gray-300 hover:text-gray-100  `}>
                                 <span className="material-symbols-outlined text-4xl">
-                                    <Info className={`${location.pathname === ROUTES.ABOUT_US ? ' xl:fill-transparent fill-white' : ''} md:w-9 md:h-9 xl:w-6 xl:h-6 stroke-1`}/>
+                                    <Info className={`${location.pathname === ROUTES.ABOUT_US ? ' xl:stroke-2 stroke-[3px]'  : ''} md:w-9 md:h-9 xl:w-6 xl:h-6`}/>
                                 </span>
                                 <span className='xl:block hidden'>About us</span>
                             </li>
                         </Link>
-                        <Link to={ROUTES.ABOUT_US}>
-                            <li className={`text-white ${location.pathname === ROUTES.ABOUT_US ? 'text-[#00ffea]' : ''} xl:list-none xl:gap-3 md:py-2 px-3 xl:hover:bg-[#314969]  rounded-xl flex xl:items-center items-start xl:flex-row flex-col text-gray-300 hover:text-gray-100 `}>
+                        <Link to={ROUTES.SETTINGS}>
+                            <li className={`text-white ${location.pathname === ROUTES.SETTINGS ? 'text-[#00ffea]' : ''} xl:list-none xl:gap-3 md:py-2 px-3 xl:hover:bg-[#314969]  rounded-xl flex xl:items-center items-start xl:flex-row flex-col text-gray-300 hover:text-gray-100 `}>
                                 <span class="material-symbols-outlined text-4xl">
-                                    <Cog className={`${location.pathname === ROUTES.ABOUT_US ? ' xl:fill-transparent fill-white' : ''} md:w-9 md:h-9 xl:w-6 xl:h-6 stroke-1`}/>
+                                    <Cog className={`${location.pathname === ROUTES.SETTINGS ?  'xl:stroke-2 stroke-[3px]'  : ''} md:w-9 md:h-9 xl:w-6 xl:h-6`}/>
                                 </span>
                                 <span className='xl:block hidden'>Settings</span>
                             </li>

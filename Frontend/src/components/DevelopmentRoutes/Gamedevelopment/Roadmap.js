@@ -14,7 +14,7 @@ import ProgrammingPage from "../Gamedevelopment/Programming";
 import PublishingPage from "../Gamedevelopment/Publishing";
 import MathPage from "../Gamedevelopment/Math";
 import Development from "../../../hooks/developments.hooks";
-
+import MobileNav from "../../navigation/mobilenav";
 import ActivityContext from "../../../Context/activity.context";
 import { toast } from "sonner";
 
@@ -154,6 +154,7 @@ export default function GameDev() {
           <span className="material-symbols-outlined">text_snippet</span>
         </button>
       </div>
+      <MobileNav />
     </section>
   );
 }
