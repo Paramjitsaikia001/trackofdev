@@ -54,25 +54,44 @@
 // export { Mailer };
 
 
+// backend/utills/sendOTP.js
 import nodemailer from "nodemailer";
 
-export const Mailer = async (email, otp) => {
+export const Mailer = async (toEmail, otp) => {
+  try {
     const transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: Number(process.env.EMAIL_PORT),
-        secure: false,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        }
+      host: process.env.EMAIL_HOST,                // smtp-relay.brevo.com
+      port: Number(process.env.EMAIL_PORT || 587), // 587
+      secure: false,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,             // Brevo SMTP key
+      },
+      // optional: increase connection timeout to avoid ETIMEDOUT
+      connectionTimeout: 20000,
+      greetingTimeout: 20000,
+      socketTimeout: 20000,
     });
 
+    // verify connection (logs will show any auth/connection errors)
+    await transporter.verify();
+
     const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: email,
-        subject: "Your OTP Code",
-        text: `Your OTP is ${otp}`
+      from: process.env.EMAIL_USER,
+      to: toEmail,
+      subject: "Your DevTrack OTP",
+      text: `Your OTP is ${otp}. It expires in 5 minutes.`,
+      html: `<p>Your OTP is <strong>${otp}</strong>. It expires in 5 minutes.</p>`
     };
 
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Mailer sent:", info.messageId);
+    return info;
+  } catch (err) {
+    // throw a clear error so controller can surface it
+    console.error("Mailer error:", err && err.message ? err.message : err);
+    throw new Error(err && err.message ? err.message : "Mailer failed");
+  }
 };
+
+export default Mailer;
