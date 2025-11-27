@@ -4,12 +4,10 @@ import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport(
     {
-        service: "gmail",
+        service: process.env.EMAIL_SERVICE,
         auth: {
-            // user: process.env.EMAIL_USER,
-            user: "paramjitsaikia@gmail.com",
-            // pass: process.env.EMAIL_PASSWORD
-            pass: "gllvfjnuvvrqswwz"
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD
         }
     }
 );
