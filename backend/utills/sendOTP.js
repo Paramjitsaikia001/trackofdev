@@ -22,6 +22,11 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+transporter.verify((err, success) => {
+  console.log("VERIFY ERR:", err);
+  console.log("VERIFY SUCCESS:", success);
+});
+
 const Mailer = async ( email,otp) => {
     try {
         if (!process.env.EMAIL_USER && !process.env.EMAIL_PASSWORD) {
