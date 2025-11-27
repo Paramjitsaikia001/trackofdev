@@ -53,7 +53,7 @@ const sendOTP = asyncHandler(async (req, res) => {
     throw new ApiError(400, "email is already exists . please login instead")
   }
 
-  await transporter.verify();
+
 
   const otp = generateOTP();
   console.log(otp, email);
