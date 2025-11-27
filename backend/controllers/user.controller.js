@@ -5,7 +5,7 @@ import { EmailVerification } from "../models/verifiedemail.model.js";
 // import { SavedRoadmap } from "../models/savedRoadmap.model.js";
 // import { Activity } from "../models/activity.model.js";
 // import { Reviews } from "../models/reviews.model.js";
-import { Mailer } from "../utills/sendOTP.js";
+import  Mailer  from "../utills/sendOTP.js";
 import ApiError from "../utills/apiError.js";
 import asyncHandler from "../utills/asyncHandler.js";
 import apiResponse from "../utills/apiResponse.js";
