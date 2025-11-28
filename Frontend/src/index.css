@@ -29,32 +29,32 @@ code {
 
 /* Hide scrollbar until scrolling */
 .scrollbar-hidden::-webkit-scrollbar-thumb {
-  background: transparent;
+  /* background: transparent; */
   border-radius: 5px;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
-  width: 6px;
+  width: 0;
 }
 /* Show scrollbar on scroll */
 .scrollbar-show::-webkit-scrollbar {
-  width: 6px;
+  width: 0;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #03346E;
+  background: #03336e00;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #021526;
-  border-radius: 5px;
+  background: #02152600;
+  border-radius: 0;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #acc2ef;
+  background: #acc2ef00;
 }
 
 .swiper {
@@ -72,11 +72,15 @@ code {
   width: 100%;
   height: 100%;
   text-align: center;
-  background: rgb(16, 20, 57);
+  /* background: rgb(16, 20, 57);
   background: radial-gradient(circle, rgba(16, 20, 57, 1) 0%, rgba(85, 116, 177, 1) 100%);
 
   /* Center slide text vertically */
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */ 
+background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .swiper-slide img {

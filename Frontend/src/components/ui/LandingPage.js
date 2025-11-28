@@ -98,7 +98,7 @@ const navigate=useNavigate()
 
 
     return (
-        <div className="min-h-screen overflow-x-hidden  w-full bg-gradient-to-b from-slate-900 via-neutral-900 to-slate-950 text-slate-100 antialiased">
+        <div className="min-h-screen overflow-x-hidden overflow-y-hidden   w-full bg-gradient-to-b from-slate-900 via-neutral-900 to-slate-950 text-slate-100 antialiased">
             {/* Decorative animated blob */}
             <div
                 ref={blobRef}
@@ -171,9 +171,8 @@ const navigate=useNavigate()
 
                         <div className="mt-8 flex gap-4 pt-16 items-center animate-in">
                             <a
-                                ref={ctaRef}
+                                 href={ROUTES.REGISTER}
                                 id="get-started"
-                                href="#dev-era"
                                 className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 px-5 py-3 font-medium text-slate-900 shadow-lg hover:scale-[1.02] transform transition"
                             >
                                 Try DevTrack
@@ -192,9 +191,9 @@ const navigate=useNavigate()
                         </div>
 
                         <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-400">
-                            <span className="px-3 py-1 rounded-full bg-white/3">No credit card required</span>
-                            <span className="px-3 py-1 rounded-full bg-white/3">SSO & Teams</span>
-                            <span className="px-3 py-1 rounded-full bg-white/3">GDPR-ready</span>
+                            <span className="px-3 py-1 rounded-full bg-white/3">Save Roadmap</span>
+                            <span className="px-3 py-1 rounded-full bg-white/3">Track Activity</span>
+                            <span className="px-3 py-1 rounded-full bg-white/3">Learn Freely</span>
                         </div>
                     </div>
 
@@ -203,13 +202,13 @@ const navigate=useNavigate()
                 <section id="features" className="mt-20 h-svh flex flex-col justify-center">
                     <h2 className="text-2xl font-extralight mb-6">What you get</h2>
                     <div className="flex flex-col h-fit">
-                        <h1 className="roadmp text-[11rem] font-extrabold leading-none mb-[-1rem]">
+                        <h1 className="roadmp text-[20vw] md:text-[11rem] font-extrabold leading-none mb-[-1rem]">
                             Roadmap
                         </h1>
-                        <p className="roadmp italic text-3xl styleScript px-2 leading-none my-[0.5rem]">
+                        <p className="roadmp italic text-[10vw] md:text-3xl styleScript px-2 leading-none my-[0.5rem]">
                             with
                         </p>
-                        <h1 className="bg-gradient-to-tr from-primary-blue bg-clip-text text-transparent to-white roadmp text-[11rem] font-extrabold leading-none mt-[-1rem]">
+                        <h1 className="bg-gradient-to-tr from-primary-blue bg-clip-text text-transparent to-white roadmp text-[20vw]  md:text-[11rem] font-extrabold leading-none mt-[-1rem]">
                             Free Resources
                         </h1>
                     </div>
@@ -222,7 +221,7 @@ const navigate=useNavigate()
 
                         <div className="p-6 h-full w-full flex flex-col items-start  justify-center rounded-2xl bg-gradient-to-br from-violet-700 to-cyan-700 ring-1 ring-white/6 shadow-lg text-white">
                             {developments?.map((items) => (
-                                <div key={items.id} className="pl-4 transition-all duration-200 developements hover:text-white/80 hover:text-[4rem] text-5xl text-white/30 font-extrabold cursor-pointer [-webkit-text-stroke:_2px_rgb(255 255 255 / 0.9)">
+                                <div key={items.id} className="pl-4 transition-all duration-200 developements hover:text-white/80 md:hover:text-[4rem] text-[5vw] hover:text-[7vw]  md:text-5xl text-white/30 font-extrabold cursor-pointer [-webkit-text-stroke:_2px_rgb(255 255 255 / 0.9)">
                                     {items.title}
                                 </div>
                             ))}
@@ -232,21 +231,21 @@ const navigate=useNavigate()
                     </div>
                 </section>
 
-                <section id="about us" className="mt-20 lp-footer">
-                    <div className="rounded-2xl p-6 bg-slate-900/40 ring-1 ring-white/4 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div>
-                            <h4 className="text-lg font-semibold">Do you wanna who build this ?</h4>
-                            <p className="text-slate-300 mt-1">Do you heard the name <a 
+                <section id="about us" className="mt-20">
+                    <div className="rounded-2xl md:p-6 py-3 px-2 bg-slate-900/40 ring-1 ring-white/4 flex flex-row md:items-center justify-between gap-4">
+                        <div className="md:text-lg text-sm">
+                            <h4 className=" font-semibold">Do you wanna who build this ?</h4>
+                            <p className="text-slate-300 mt-1">You may heard the Name ,<a 
                             href="https://paramjitsaikia001.github.io/PRMJTS/"
                             target="_blanet"
-                            className="font-semibold text-cyan-300 transition-all duration-400 cursor-pointer hover:underline hover:bg-slate-100/20 hover:px-2 hover:py-1">Paramjit Saikia</a>.</p>
+                            className="font-semibold text-cyan-300 transition-all duration-400 cursor-pointer hover:underline hover:bg-slate-100/20 hover:px-2 hover:py-1">Paramjit Saikia</a></p>
                          
                         </div>
-                        <div className="flex gap-3">
-                            <a href="#pricing" className="rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 px-4 py-2 text-slate-900 font-medium hover:scale-[1.02] transition">
+                        <div className="sm:flex hidden md:text-base text-sm gap-3">
+                            <a href={ROUTES.REGISTER} className="rounded-full bg-gradient-to-r from-violet-500 to-cyan-400 px-4 py-2 text-slate-900 flex items-center text-center font-medium hover:scale-[1.02] transition">
                                 Register
                             </a>
-                            <a href="#contact" className="rounded-full px-4 py-2 border border-white/6 text-sm text-slate-300 hover:bg-white/4 transition">
+                            <a href={ROUTES.LOGIN} className="rounded-full px-4 py-2 border border-white/6 flex items-center  text-center text-slate-300 hover:bg-white/4 transition">
                                 Log in
                             </a>
                         </div>
@@ -260,7 +259,7 @@ const navigate=useNavigate()
                         <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-100">D</div>
                         <div>
                             <div className="font-semibold text-slate-100">DevTrack</div>
-                            <div className="text-xs text-slate-400">© {new Date().getFullYear()} DevEra, Inc</div>
+                            <div className="text-xs text-slate-400">© {new Date().getFullYear()} DevTrack, Inc</div>
                         </div>
                     </div>
 

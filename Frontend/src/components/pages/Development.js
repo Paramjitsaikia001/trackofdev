@@ -219,7 +219,7 @@ export default function Development() {
                         {developmentCards.map((card) => (
                             <div
                                 key={card.id}
-                                className="relative group bg-white rounded-xl flex flex-col justify-between shadow-xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                                className="relative group bg-white rounded-xl flex flex-col justify-between shadow-xl overflow-hidden transform transition-all duration-500 sm:hover:scale-105 hover:shadow-2xl"
                             // onClick={() => routerhander(card.route)
                             // }
 

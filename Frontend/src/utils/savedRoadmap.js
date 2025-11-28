@@ -76,14 +76,14 @@ const SavedRoadmaps = () => {
             }
         }
     }
- if (loading) {
+    if (loading) {
         return (
             <Loading />
         );
     }
     return (
         <section className="min-h-screen ">
-            {Object.keys(savedMap).length > 0 ? (
+
             <div className="savedroadmaps max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 ">
 
 
@@ -120,32 +120,24 @@ const SavedRoadmaps = () => {
                         >
                             {/* heading  */}
                             <div className='p-6'>
-                                <h3 className="text-xl font-bold text-black mb-4 uppercase tracking-tight">{detail?.title}</h3>
+                                <div className="flex items-baseline justify-between">
+
+                                    <h3 className="text-xl font-bold text-black mb-4 uppercase tracking-tight">{detail?.title}</h3>
+                                    {/* Icon */}
+                                    <span
+                                        onClick={() => roadmapsavedHandler(detail?.route)}
+                                        className={`text-[2.5rem] font-light cursor-pointer `}>
+
+                                        <Bookmark fill={savedMap[detail?.route] ? 'black' : 'none'} />
+                                    </span>
+                                </div>
                                 <p className="text-black/70 text-sm leading-relaxed mb-6">{detail?.description}</p>
                             </div>
-                            <div className="p-6 flex items-center gap-5 justify-between">
-                                {/* Icon */}
-                                <span
-                                    onClick={() => roadmapsavedHandler(detail?.route)}
-                                    className={`text-[2.5rem] font-light cursor-pointer `}>
 
-                                    <Bookmark fill={savedMap[detail?.route] ? 'black' : 'none'} />
-                                </span>
-                                {/* Button */}
-                                <button
-                                    // onClick={e => { e.stopPropagation(); routerhander(detail.route); }}
-                                    className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md transition-colors duration-300 cursor-pointer"
-                                >
-                                    Show Track
-                                </button>
-                            </div>
                         </div >
                     );
                 })}
             </div>
-            ) : (
-                <p className="text-center text-white mt-10">No saved roadmaps found.</p>
-            )}
         </section>
 
     )

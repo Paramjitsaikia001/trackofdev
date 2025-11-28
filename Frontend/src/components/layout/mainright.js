@@ -20,7 +20,7 @@ import { toast } from 'sonner';
 import { Bookmark } from 'lucide-react';
 import { ROUTES } from '../../constants/routes';
 import Loading from '../../utils/loading';
-
+import {ArrowRightFromLine} from 'lucide-react';
 
 
 
@@ -152,7 +152,7 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
                             {developmentCards.slice(0, 3).map((card) => (
                                 <div
                                     key={card.id}
-                                    className="relative group bg-white rounded-xl flex flex-col justify-between shadow-xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                                    className="relative group bg-white rounded-xl flex flex-col justify-between shadow-xl overflow-hidden transform transition-all duration-500 sm:hover:scale-105 hover:shadow-2xl"
                                 // onClick={() => routerhander(card.route)
                                 // }
 
@@ -182,9 +182,10 @@ export default function Mainright({ toggleHideLeft, Hide_Left }) {
                             ))}
                         </div>
                         {/* Explore More Button */}
-                        <div className="text-center mt-12">
-                            <button className="text-indigo-400 font-semibold text-lg hover:text-indigo-300 transition-colors duration-300">
-                                Explore more destiny...
+                        <div className="text-center mt-4">
+                            <button className="text-indigo-400 font-extralight text-lg hover:text-indigo-300 flex items-center transition-colors duration-300 gap-1 border border-indigo-400 px-8 py-1 rounded-full hover:bg-indigo-400/10 " onClick={() => navigate(ROUTES.DEVELOPMENT)}>
+                                <span>MORE</span>
+                                <ArrowRightFromLine className="stroke-[1px]" />
                             </button>
                         </div>
                     </div>

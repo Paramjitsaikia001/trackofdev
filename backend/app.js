@@ -7,7 +7,8 @@ dotenv.config();
 
 app.use(cors(
     {
-        origin:process.env.CORS_ORIGIN,
+        // origin:process.env.CORS_ORIGIN ||"http://localhost:8000",
+             origin:"http://localhost:3000",
         credentials:true
         
     }
@@ -21,6 +22,7 @@ app.use(express.static('public'))
 app.use(cookieParser())
 
 
+
 import router from './routes/roadmaproutes.js';
 import authRouter from './routes/auth.routes.js';
 import reviewRouter from "./routes/review.routes.js"
@@ -29,6 +31,10 @@ import savedRoadmapRouter from "./routes/savedRoadmap.route.js"
 import searchRouter from "./routes/search.routes.js"
 import { healthCheckRouter } from './routes/healthCheck.routes.js';
 import ProfileandCoverrouter from "./routes/profileAndcover.routes.js"
+
+
+
+
 
 app.use("/api/v1/healthcheck",healthCheckRouter);
 
@@ -49,4 +55,14 @@ app.use("/api/v1/development",router);
 app.use("/api/v1/profileAndCover",ProfileandCoverrouter)
 
 
+app.use((err, req, res, next) => {
+    console.error(err);
+
+    const statusCode = err.statusCode || err.status || 500;
+
+    return res.status(statusCode).json({
+        success: false,
+        message: err.message || "Something went wrong",
+    });
+});
 export  {app};

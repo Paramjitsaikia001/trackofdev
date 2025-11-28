@@ -8,7 +8,7 @@ import UserContext from '../../Context/user.context';
 import { ROUTES } from '../../constants/routes';
 const Registration = () => {
   const navigate = useNavigate();
-  const { register, verifyOTP, sendOTP } = useContext(UserContext)
+  const { register,error ,loading} = useContext(UserContext)
 
   const [userName, setUserName] = useState('');
   const [fullName, setFullName] = useState("")
@@ -22,18 +22,15 @@ const Registration = () => {
   const [showOTPsection, setShowotpsection] = useState(false)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(password, confirmPassword);
 
     // Handle form submission here
     try {
       await register(email, fullName, userName, password, confirmPassword, role)
       navigate(ROUTES.HOME)
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
 
-    // Submit the form data to your server or API
-    console.log(e)
   };
 
 
@@ -92,9 +89,9 @@ const Registration = () => {
           </div>
         </div>
 
-        <div className="registration-container flex flex-col text-sm justify-center items-center xl:w-[40%] w-full h-full rounded-r-[2rem]">
+        <div className="registration-container flex flex-col text-sm md:text-lg justify-center items-center xl:w-[40%] w-full h-full rounded-r-[2rem]">
 
-          <div className="registration-form w-[80%] text-sm ">
+          <div className="registration-form w-[80%] text-sm md:text-base">
             <form onSubmit={handleSubmit} className="flex flex-col gap-8 justify-center w-full items-center">
 
               <div className="fullnameandusername flex w-full   gap-4 h-14">
@@ -223,7 +220,7 @@ const Registration = () => {
               </div>
 
 
-              <div className="role flex w-full h-14 items-center font-extralight text-[#00ffee]  justify-end gap-1">
+              <div className="role flex w-full h-14 text-sm md:text-lg items-center font-extralight text-[#00ffee]  justify-end gap-1">
                 <span className='  italic font-sans'>You're a </span>
                 <select
                   name="role"
@@ -232,17 +229,22 @@ const Registration = () => {
                   onChange={(e) => setRole(e.target.value)}
                   className="h-18 outline-none   w-[40%] bg-transparent rounded-lg  placeholder-white/40 italic font-semibold h-full"
                 >
-                  <option value="Developer">YOUR ROLE</option>
+                  <option value="">YOUR ROLE</option>
                   <option value="Developer">Developer</option>
                   <option value="Student" >Student</option>
                 </select>
               </div>
-
+            
+             {error && (
+                <p className="w-full bg-red-700 rounded-full text-white text-center text-sm md:text-lg">
+                  {error}
+                </p>
+              )}
               <button
                 type="submit"
                 onClick={handleSubmit}
                 className=" w-full flex items-center justify-center bg-[#00ffee]/20 rounded-full h-14  font-semibold text-white hover:shadow-sm hover:shadow-white/30 transition-transform duration-300 ">
-                Register
+               {loading ? "Registering..." : "Register"}
               </button>
             </form>
           </div>

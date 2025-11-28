@@ -40,7 +40,7 @@ function App() {
   return (
     <Router>
       <Toaster
-        position="bottom-center"
+        position="top-center"
         toastOptions={{
           style: { borderRadius: "8px", backgroundColor: "black", color: "white" },
         }}

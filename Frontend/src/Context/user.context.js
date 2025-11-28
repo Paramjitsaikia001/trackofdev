@@ -8,37 +8,62 @@ const UserContext = createContext(null)
 
 export const UserProvider = ({ children }) => {
     const [user, setUserState] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
     const isAuthanticate = Boolean(user)
 
 
     //get current user
+    // const getCurrentUser = async () => {
+    //     setLoading(true)
+    //     setError(null)
+
+    //     try {
+    //         const res = await Api.get("/auth/current-user")
+    //         const fetchedUser = res.data?.data || null;
+
+    //         setUserState(fetchedUser)
+
+    //         console.log("user data", res.data.data.userName);
+
+
+    //         return fetchedUser
+    //     } catch (error) {
+    //         // console.log(error);
+    //         setUserState(null)
+    //         return null
+    //     } finally {
+    //         setLoading(false)
+
+    //     }
+    // }
+
     const getCurrentUser = async () => {
-        setLoading(true)
-        setError(null)
+    // prevent re-fetch if user already loaded
+    console.log("fetching old ");
+    
+    if (user) return user;
 
-        try {
-            const res = await Api.get("/auth/current-user")
-            const fetchedUser = res.data?.data || null;
+    setLoading(true);
+    setError(null);
 
-            setUserState(fetchedUser)
+    try {
+        const res = await Api.get("/auth/current-user");
+        const fetchedUser = res.data?.data || null;
+        console.log("fetched user", fetchedUser);
 
-            console.log("user data", res.data.data.userName);
+        setUserState(fetchedUser);
+        return fetchedUser;
 
+    } catch (error) {
+        setUserState(null);
+        return null;
 
-            return fetchedUser
-        } catch (error) {
-            // console.log(error);
-            setUserState(null)
-            return null
-        } finally {
-            setLoading(false)
-
-        }
+    } finally {
+        setLoading(false);
     }
-
+};
 
     //send otp for register user
     // const sendOTP = async (email) => {
@@ -76,12 +101,24 @@ export const UserProvider = ({ children }) => {
 
             const registeredUser = res.data?.data;
             setUserState(registeredUser);
+           
             return registeredUser;
 
         } catch (error) {
-            setError(error?.response?.data?.message || "registration failed");
-            throw error;
-        }
+            console.log(error.response.data);
+            
+    const backendMessage = error?.response?.data?.message;
+
+    // Always show the real controller message
+    if (backendMessage) {
+        setError(backendMessage);
+        throw new Error(backendMessage);
+    }
+
+    // If no backend message, show raw error
+    setError("Unexpected error occurred");
+    throw new Error("Unexpected error occurred");
+}
     };
 
     const login = async (email, userName, password) => {
@@ -95,7 +132,7 @@ export const UserProvider = ({ children }) => {
             setUserState(loginedUser)
             return loginedUser
         } catch (error) {
-            const Errmsg = error?.response?.data?.message || "failed to login in please check credentials"
+            const Errmsg = error?.response?.data?.message || "Failed to login in please check your Email/Username and Password"
             setError(Errmsg)
 
             throw new Error(Errmsg)

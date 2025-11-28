@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Github, BriefcaseBusiness, GraduationCap, CalendarDays, Linkedin, SquarePen } from "lucide-react"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SavedRoadmaps from "../../utils/savedRoadmap";
 import UserContext from "../../Context/user.context";
 import ReviewsofUser from "../../utils/ReviewofUser";
@@ -16,6 +16,7 @@ export default function Profile() {
     const date = new Date(user?.createdAt);
     const month = date.toLocaleString('en-US', { month: 'short' });
     const year = date.getFullYear();
+    const location = useLocation();
 
     const [isSavedRoadmaps, setSavedRoadmaps] = useState(true)
     const [isReviews, setReview] = useState(false)
@@ -57,14 +58,22 @@ export default function Profile() {
         }
     }
 
+ useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top of the page when the route changes
+    }, [location]);
 
 
 
-    useEffect(() => {
-        if (!user) {
-            getCurrentUser()
-        }
-    }, [])
+        // useEffect(() => {
+        // if (!user){
+
+        //     getCurrentUser()
+        // }
+        // }, [])
+
+        useEffect(() => {
+   getCurrentUser();
+}, []);
 
     if (loading) {
         return (
@@ -72,9 +81,7 @@ export default function Profile() {
         );
     }
 
-    if (!isAuthanticate) {
-        return <p>who are you?</p>
-    }
+   
     return (
         <section className="flex flex-col xl:w-[80%] w-[100%] h-[100%]">
             <div className="w-full flex flex-col gap-8">

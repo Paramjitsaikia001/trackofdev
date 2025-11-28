@@ -10,23 +10,23 @@ import UserContext from '../../Context/user.context';
 
 const Login = () => {
 
-  const { login, loading,  } = useContext(UserContext)
+  const { login, loading, error } = useContext(UserContext)
 
   const [userName, setUserName] = useState('');
-  const [email,setEmail]=useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [passwordType, setpasswordTtype] = useState("password")
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission here
     // Submit the form data to your server or API
     try {
-      await login(email,userName,password)
+      await login(email, userName, password)
       window.location.href = ROUTES.HOME;
     } catch (error) {
       console.log(error.message);
-      
+
     }
   };
 
@@ -101,7 +101,7 @@ const Login = () => {
 
                   />
                   <button
-                  type='button'
+                    type='button'
                     onClick={hideShowPassword}
                     className='items-center justify-center text-white/40'
                   >
@@ -116,15 +116,19 @@ const Login = () => {
 
 
 
-
+              {error && (
+                <p className="w-full bg-red-700 rounded-full text-white text-center text-sm md:text-lg">
+                  {error}
+                </p>
+              )}
 
               <button
-              onClick={handleSubmit}
-              disabled={loading}
+                onClick={handleSubmit}
+                disabled={loading}
 
                 type="submit"
                 className=" w-full flex items-center justify-center bg-[#00ffee]/20 rounded-full h-14 text-xl font-semibold text-white hover:shadow-sm hover:shadow-white/30 transition-transform duration-300 ">
-                {loading ? "Login....":"login"}
+                {loading ? "Login...." : "login"}
               </button>
             </form>
           </div>

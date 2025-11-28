@@ -130,6 +130,12 @@ const register = asyncHandler(async (req, res) => {
   //   throw new ApiError(400, "Email not verified. Please verify OTP first.");
   // }
 
+
+  const existingEmail = await User.findOne({ email: normalizedEmail });
+  if (existingEmail) {
+    throw new ApiError(400, "Email already exists");
+  }
+
   const userNameRegex = /^[a-z_][a-z0-9_]*$/;
   if (!userNameRegex.test(userName)) {
     throw new ApiError(400, "Invalid userName format. userName should start with a letter or underscore and contain only letters, numbers, and underscores.");
@@ -203,14 +209,14 @@ const login = asyncHandler(async (req, res) => {
   })
 
   if (!user) {
-    throw new ApiError(404, "user not exists")
+    throw new ApiError(404, "User not founded with this email or username")
   }
 
 
   const passwordValid = await user.isPasswordCorrect(password)
 
   if (!passwordValid) {
-    throw new ApiError(401, "invalid user credential")
+    throw new ApiError(401, "invalid password")
   }
 
   const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id)
