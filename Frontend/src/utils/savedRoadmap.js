@@ -7,7 +7,6 @@ const SavedRoadmaps = () => {
 
     const { getSavedRoadmapByUser, deleteSavedRoadmap, savedRoadmap: savedRoadmapData, loading } = useContext(SavedRoadmapContext)
     const { getRoadmapdetails ,loading:loadingDetails} = useContext(RoadmapDetailContext)
-    ``
     const [savedRoadmap, setSavedRoadmap] = useState([])
     const [roadmapDetails, setRoadmapDetails] = useState([]);
     const [savedMap, setSavedMap] = useState({});
