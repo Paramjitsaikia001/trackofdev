@@ -8,7 +8,7 @@ export default function Saved() {
   
  
     return (
-       <section className="flex flex-col xl:w-[80%] w-[100%] h-[100%] gap-4">
+       <section className="flex flex-col xl:w-[80%] w-[100%]  md:h-full h-screen gap-4">
             <div className='flex justify-center p-4'>
               
 
