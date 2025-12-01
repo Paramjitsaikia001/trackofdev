@@ -6,7 +6,7 @@ import Loading from './loading';
 const SavedRoadmaps = () => {
 
     const { getSavedRoadmapByUser, deleteSavedRoadmap, savedRoadmap: savedRoadmapData, loading } = useContext(SavedRoadmapContext)
-    const { getRoadmapdetails ,loading:loadingDetails} = useContext(RoadmapDetailContext)
+    const { getRoadmapdetails } = useContext(RoadmapDetailContext)
     const [savedRoadmap, setSavedRoadmap] = useState([])
     const [roadmapDetails, setRoadmapDetails] = useState([]);
     const [savedMap, setSavedMap] = useState({});
@@ -75,7 +75,7 @@ const SavedRoadmaps = () => {
             }
         }
     }
-    if (loading || loadingDetails) {
+    if (loading) {
         return (
             <Loading />
         );
@@ -83,7 +83,7 @@ const SavedRoadmaps = () => {
     return (
         <section className="min-h-screen ">
 
-            <div className="savedroadmaps xl:w-[80%] w-[100%]  md:h-full h-screen mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 ">
+            <div className="savedroadmaps  w-[100%]  md:h-full h-screen mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 ">
 
 
 

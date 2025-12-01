@@ -69,7 +69,7 @@ const UserActivity = () => {
     }
 
     return (
-        <div className=" mx-auto p-6  xl:w-[80%] w-[100%]  md:h-full h-screen">
+        <div className=" mx-auto p-6  w-[100%]  md:h-full h-screen">
 
             {Object.keys(grouped).length > 0 ? (
                 <div className="space-y-4">
